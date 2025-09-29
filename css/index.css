@@ -114,6 +114,7 @@ body {
   list-style: none;
 }
 .header--sticky .nav a {
+  font-size: clamp(0.7rem, 2vw, 1rem); /* Se adapta al ancho */
   padding: 12px 24px;
   border-radius: 15px;
   background-color: #311a00af;
@@ -531,11 +532,14 @@ body.has-sticky main { padding-top: var(--sticky-height); }
 /* ==============================
    RESPONSIVE
 =================================*/
-@media (max-width: 992px) {
-  .header--sticky .nav ul { gap: 15px; }
-  .carousel-btn.prev { left: -30px; }
-  .carousel-btn.next { right: -30px; }
+@media (max-width: 768px) {
+  .header--over .brand img,
+  .header--sticky .brand img {
+    width: 40%;
+    max-width: 120px;
+  }
 }
+
 @media (max-width: 768px) {
   .hero { height: 50vh; }
   .gallery { grid-template-columns: 1fr; }
