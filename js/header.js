@@ -1,18 +1,15 @@
-/*
-  JS: usamos IntersectionObserver para detectar cuándo la .hero sale de la vista.
-  Cuando la .hero deja de intersectar la ventana, mostramos el header sticky.
-*/
 document.addEventListener('DOMContentLoaded', function () {
   const hero = document.querySelector('.hero');
   const headerOver = document.querySelector('.header--over');
   const headerSticky = document.querySelector('.header--sticky');
 
-  // Manejo de foco/tabuabilidad: desactivar tabIndex en el header oculto
+  // Salimos inmediatamente si estamos en móvil
+  if (window.innerWidth <= 768) return;
+
   function setHeaderFocusable(header, focusable) {
     const controls = header.querySelectorAll('a, button, [tabindex]');
     controls.forEach(el => {
       if (!focusable) {
-        // guardamos valor anterior (si lo hay) y ponemos -1 para que no reciba tab
         el.dataset._oldtab = el.getAttribute('tabindex') || '';
         el.setAttribute('tabindex', '-1');
       } else {
@@ -23,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Mostrar/ocultar y actualizar atributos aria
   function toggleHeaders(showSticky) {
     if (showSticky) {
       headerOver.classList.add('hidden');
@@ -32,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
       headerSticky.setAttribute('aria-hidden', 'false');
       setHeaderFocusable(headerOver, false);
       setHeaderFocusable(headerSticky, true);
-      document.body.classList.add('has-sticky'); // añade padding-top al main
+      document.body.classList.add('has-sticky');
     } else {
       headerOver.classList.remove('hidden');
       headerOver.setAttribute('aria-hidden', 'false');
@@ -44,27 +40,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Observador (lo recreamos si cambia el tamaño de header)
   let observer = null;
   function createObserver() {
-    // calcular altura del sticky para que la aparición sea justo cuando la hero "sale"
-    const stickyHeight = headerSticky.getBoundingClientRect().height; // ya flexible
+    const stickyHeight = headerSticky.getBoundingClientRect().height;
     if (observer) observer.disconnect();
     observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        // entry.isIntersecting === true -> hero visible -> NO sticky
-        // si NO intersecta -> hero fuera -> mostramos sticky
-        toggleHeaders(!entry.isIntersecting);
-      });
+      entries.forEach(entry => toggleHeaders(!entry.isIntersecting));
     }, {
       root: null,
       threshold: 0,
-      rootMargin: `-${stickyHeight}px 0px 0px 0px` // ajusta el punto en que aparece el sticky
+      rootMargin: `-${stickyHeight}px 0px 0px 0px`
     });
     observer.observe(hero);
   }
 
-  // simple debounce para resize
   function debounce(fn, wait) {
     let t;
     return function (...args) {
@@ -73,14 +62,15 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   }
 
-  // inicializamos
-  setHeaderFocusable(headerSticky, false); // al cargar, sticky no debería ser focusable
+  setHeaderFocusable(headerSticky, false);
   setHeaderFocusable(headerOver, true);
   createObserver();
 
-  // recalc on resize (si cambia la altura del sticky)
-  window.addEventListener('resize', debounce(createObserver, 120));
+  window.addEventListener('resize', debounce(() => {
+    if (window.innerWidth > 768) createObserver();
+  }, 120));
 });
+
 
 
 
