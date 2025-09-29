@@ -27,7 +27,6 @@ body {
   line-height: 1.4;
   background-color: #fff;
 }
-
 /* ==============================
    HEADER
 =================================*/
@@ -38,57 +37,69 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 2%; /* padding horizontal relativo */
   transition: background-color var(--transition), opacity var(--transition), transform var(--transition);
   z-index: 1000;
 }
+
+/* Header inicial sobre imagen o sección */
 .header--over {
   position: absolute;
   height: var(--over-height);
   color: #fff;
   background: transparent;
 }
-.header--over .brand img {
-  width: 25%;
-  height: auto;
-  max-width: 200px;
-}
-@media (max-width: 768px) {
-  .header--over .brand img,
-  .header--sticky .brand img {
-    width: 40%;
-    max-width: 120px;
-  }
+
+/* Logo escalable */
+.header--over .brand img,
+.header--sticky .brand img {
+  margin-top: 20px;
+  height: 80%;       /* 80% de la altura del header */
+  width: auto;
+  max-height: var(--over-height);
+  transition: height 0.3s ease;
 }
 
+/* Navegación */
 .nav ul {
-  display: flex;          /* organiza los items en horizontal */
-  gap: 15px;              /* espacio entre los enlaces */
-  list-style: none;       /* quita los puntos de lista */
+  display: flex;
+  gap: 15px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
-
 .nav li {
   margin: 0;
 }
+
+/* Links header-over */
 .header--over .nav a {
   color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  margin-left: .75rem;
-  padding: .4rem .6rem;
+  margin-left: 0.75rem;
+  font-size: calc(var(--over-height) * 0.25); /* proporcional al header */
+  padding: calc(var(--over-height) * 0.15) calc(var(--over-height) * 0.25);
   border-radius: 6px;
+  transition: all 0.3s ease;
 }
+
+/* Hover background overlay */
 .header--over:hover,
-.header--over:focus-within { background: var(--overlay-bg); }
+.header--over:focus-within {
+  background: var(--overlay-bg);
+}
+
 @media (hover: none) {
   .header--over { background: var(--overlay-bg); }
 }
+
 .header--over.hidden {
   opacity: 0;
   transform: translateY(-6px);
   pointer-events: none;
 }
+
+/* Header sticky */
 .header--sticky {
   position: fixed;
   top: 0;
@@ -100,22 +111,28 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+
+/* Logo sticky escalable */
 .header--sticky .brand img {
-  width: 25%;
-  height: auto;
-  max-width: 200px;
+  margin-top: 20px;
+  height: 80%;
+  width: auto;
+  max-height: var(--sticky-height);
 }
+
+/* Navegación sticky */
 .header--sticky .nav ul {
   display: flex;
   align-items: center;
   gap: 30px;
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: 2%;
   list-style: none;
 }
+
 .header--sticky .nav a {
-  font-size: clamp(0.7rem, 2vw, 1rem); /* Se adapta al ancho */
-  padding: 12px 24px;
+  font-size: clamp(0.7rem, 2vw, 1rem); /* adaptable al ancho */
+  padding: calc(var(--sticky-height) * 0.15) calc(var(--sticky-height) * 0.25);
   border-radius: 15px;
   background-color: #311a00af;
   color: #ffffff;
@@ -124,12 +141,43 @@ body {
   text-decoration: none;
   border: 2px solid #838383;
 }
+
 .header--sticky .nav a:hover { background-color: #302418e0; }
+
 .header--sticky.visible {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
+
+/* ==============================
+   Responsive
+=================================*/
+@media (max-width: 992px) {
+  .header--sticky .nav ul { gap: 15px; }
+}
+
+@media (max-width: 768px) {
+  .header--over .brand img,
+  .header--sticky .brand img {
+    height: 60%;
+  }
+
+  .header--over .nav a,
+  .header--sticky .nav a {
+    font-size: calc(var(--over-height) * 0.2);
+    padding: calc(var(--over-height) * 0.1) calc(var(--over-height) * 0.15);
+  }
+}
+
+@media (max-width: 480px) {
+  .header--over .nav a,
+  .header--sticky .nav a {
+    font-size: calc(var(--over-height) * 0.18);
+    padding: calc(var(--over-height) * 0.08) calc(var(--over-height) * 0.12);
+  }
+}
+
 
 /* ==============================
    HERO
