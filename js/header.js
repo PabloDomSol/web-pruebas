@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let observer = null;
   function createObserver() {
     // calcular altura del sticky para que la aparición sea justo cuando la hero "sale"
-    const stickyHeight = headerSticky.getBoundingClientRect().height || 56;
+    const stickyHeight = headerSticky.getBoundingClientRect().height; // ya flexible
     if (observer) observer.disconnect();
     observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
