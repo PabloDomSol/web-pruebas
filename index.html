@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceite</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<!-- Header transparente sobre el hero (visible al cargar) -->
+  <header class="header header--over" role="banner" aria-hidden="false">
+    <div class="brand"><img src="Media/logo.jpg"></div>
+    <nav class="nav" role="navigation" aria-label="Menú principal">
+      <ul>
+        <li><a href="#Inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Header fijo (sticky) que aparece cuando hacemos scroll -->
+  <header class="header header--sticky" role="banner" aria-hidden="true">
+    <div class="brand"><img src="Media/logo.jpg"></div>
+    <nav class="nav" role="navigation" aria-label="Menú principal">
+      <ul>
+        <li><a href="#Inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero: imagen de portada -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Diseño limpio y responsivo</h1>
+      <p>Header transparente sobre la imagen que cambia al hacer scroll</p>
+    </div>
+  </section>
+
+
+  
+  <!-- Contenido de ejemplo -->
+  <section id="Inicio" ></section>
+  <h1 class="title-gallery">COMIENZA A EXPLORAR</h1>
+
+  <section class="gallery">
+    <a href="#contacto"><img src="Media/aceiteoliva.jpg" alt=""></a>
+    <a href="#contacto"><img src="Media/jarra.jpg" alt=""></a>
+    <a href="#contacto"><img src="Media/olivos.jpg" alt=""></a>
+    <a href="#contacto"><img src="Media/aceitera.webp" alt=""></a>
+  </section>
+
+
+
+
+  <div class="map-section">
+    <table>
+      <tr>
+        <!-- Primera columna: el mapa -->
+        <td>
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7452.336343241616!2d-0.4824057662683283!3d38.696565002595804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2ses!4v1758728140804!5m2!1ses!2ses" 
+              width="600" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          </div>
+        </td>
+        <!-- Segunda columna: título + texto -->
+        <td class="map-text">
+          <h1 >Sierra Engarcerán</h1>
+          <p>
+            Es un pequeño pueblo de la Comunidad Valenciana rodeado de olivos centenarios. Su economía local gira en gran parte en torno a la producción de aceite de oliva virgen extra, elaborado de forma tradicional y muy valorado por su sabor intenso y afrutado.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+    <!-- sección con 3 imágenes cuadradas -->
+  <section class="features">
+    <div class="feature">
+      <div class="feature-img">
+        <img src="Media/aceiteoliva.jpg" alt="Aceite de oliva">
+      </div>
+      <p>Aceite 100% natural</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-img">
+        <img src="Media/jarra.jpg" alt="Jarra artesanal">
+      </div>
+      <p>Jarras artesanales</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-img">
+        <img src="Media/olivos.jpg" alt="Olivos centenarios">
+      </div>
+      <p>Olivos centenarios</p>
+    </div>
+  </section>
+
+    <!-- sección de botón de ver más -->
+  <section class="explanation">
+  <button class="exp-btn">VER MÁS INFORMACIÓN</button>
+    <div class="exp-content">
+      <h2>El oro líquido de la Comunidad Valenciana</h2>
+      <p>
+        La Comunidad Valenciana cuenta con una tradición milenaria en la
+        producción de <strong>aceite de oliva virgen extra</strong>.
+        Sus olivos centenarios, cuidados con esmero, dan lugar a un aceite
+        reconocido por su sabor afrutado, equilibrado y con un ligero toque
+        amargo que realza cualquier plato mediterráneo.
+      </p>
+      <p>
+        Más que un alimento, el aceite de oliva es parte de nuestra cultura
+        y de la <em>dieta mediterránea</em>, declarada Patrimonio Inmaterial
+        de la Humanidad por la UNESCO.
+      </p>
+    </div>
+  </section>
+
+  <!-- CARROUSEL -->
+  <section class="horizontal-carousel">
+    <button class="carousel-btn prev">&#10094;</button>
+      <div class="carousel-wrapper">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="Media/aceiteoliva.jpg" alt="Aceite de oliva"></div>
+          <div class="carousel-slide"><img src="Media/jarra.jpg" alt="Jarra artesanal"></div>
+          <div class="carousel-slide"><img src="Media/olivos.jpg" alt="Olivos centenarios"></div>
+          <div class="carousel-slide"><img src="Media/aceitera.webp" alt="Aceitera"></div>
+          <div class="carousel-slide"><img src="Media/aceiteoliva.jpg" alt="Aceite de oliva"></div>
+          <div class="carousel-slide"><img src="Media/jarra.jpg" alt="Jarra artesanal"></div>
+          <div class="carousel-slide"><img src="Media/olivos.jpg" alt="Olivos centenarios"></div>
+          <div class="carousel-slide"><img src="Media/aceitera.webp" alt="Aceitera"></div>
+          <div class="carousel-slide"><img src="Media/aceiteoliva.jpg" alt="Aceite de oliva"></div>
+          <div class="carousel-slide"><img src="Media/jarra.jpg" alt="Jarra artesanal"></div>
+          <div class="carousel-slide"><img src="Media/olivos.jpg" alt="Olivos centenarios"></div>
+          <div class="carousel-slide"><img src="Media/aceitera.webp" alt="Aceitera"></div>
+          <div class="carousel-slide"><img src="Media/aceiteoliva.jpg" alt="Aceite de oliva"></div>
+          <div class="carousel-slide"><img src="Media/jarra.jpg" alt="Jarra artesanal"></div>
+          <div class="carousel-slide"><img src="Media/olivos.jpg" alt="Olivos centenarios"></div>
+          <div class="carousel-slide"><img src="Media/aceitera.webp" alt="Aceitera"></div>
+          <div class="carousel-slide"><img src="Media/aceiteoliva.jpg" alt="Aceite de oliva"></div>
+          <div class="carousel-slide"><img src="Media/jarra.jpg" alt="Jarra artesanal"></div>
+        </div>
+      </div>
+    <button class="carousel-btn next">&#10095;</button>
+  </section>
+
+
+
+  <section class="content">
+    <div class="content-block">
+      <h2>Bienvenido a nuestra página</h2>
+      <p>Esta es una sección principal con información destacada.</p>
+
+      <div class="card-container">
+        <div class="image-card">
+          <img src="Media/aceiteoliva.jpg" alt="Aceite de oliva">
+          <div class="image-text">
+            <h3>Aceite de oliva virgen</h3>
+            <p>100% natural y tradicional</p>
+          </div>
+        </div>
+
+        <div class="image-card">
+          <img src="Media/jarra.jpg" alt="Jarra artesanal">
+          <div class="image-text">
+            <h3>Jarras artesanales</h3>
+            <p>Hechas a mano con cuidado</p>
+          </div>
+        </div>
+
+        <div class="image-card">
+          <img src="Media/olivos.jpg" alt="Olivos centenarios">
+          <div class="image-text">
+            <h1>Olivos centenarios</h1>
+            <p>La tradición mediterránea viva</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Columna 1 con barra dentro -->
+      <div class="footer-col">
+      <div class="bar-container">
+          <img class="footer-logo" src="Media/logo.jpg">
+          <p>Conecta con nosotros</p>
+          <div class="social-icons">
+              <a href="#"><img src="Media/facebook.png" alt="Facebook"></a>
+              <a href="#"><img src="Media/instagram.png" alt="Instagram"></a>
+          </div>
+          <div class="bar-vertical"></div> <!-- barra vertical pegada -->
+      </div>
+      </div>
+
+      
+      <!-- Columna 2 -->
+      <div class="footer-col">
+        <p><strong>Phone</strong><br>
+          <a href="tel:8886098910">888-609-8910</a>
+        </p>
+        <p><strong>Email</strong><br>
+          <a href="mailto:ia.clientservice@savewithable.com">ia.clientservice@savewithable.com</a>
+        </p>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="footer-col">
+        <p><strong>Useful Links</strong></p>
+        <ul>
+          <li><a href="#">Benefits</a></li>
+          <li><a href="#">Investments</a></li>
+          <li><a href="#">Eligibility</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 4 -->
+      <div class="footer-col">
+        <p><strong>Quick Links</strong></p>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Enroll</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Línea divisoria -->
+    <hr>
+
+    <!-- Texto legal -->
+    <div class="footer-legal">
+      <p>
+        For more information about IAble, obtain a <a href="#">Plan Disclosure Booklet (PDF)</a> online or by calling (888) 609-8910...
+      </p>
+      <p>
+        If you are not an Iowa taxpayer, consider before investing whether your home state offers...
+      </p>
+      <p>
+        The Treasurer of the State of Iowa acts as trustee of the ABLE Savings Plan Trust...
+      </p>
+      <p>IAble and the IAble logo are trademarks of the Iowa ABLE Savings Plan Trust.</p>
+    </div>
+
+  </footer>
+
+
+
+    
+
+
+
+  <script src="js/header.js"></script>
+</body>
+</html>
