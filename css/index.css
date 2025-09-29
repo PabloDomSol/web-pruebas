@@ -137,7 +137,7 @@ body {
 =================================*/
 .hero {
   height: 65vh;
-  background-image: url('https://www.salud.mapfre.es/wp-content/uploads/2020/10/aceite-de-oliva.jpg');
+  background-image: url('../Media/hero.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
