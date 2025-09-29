@@ -14,8 +14,8 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --backcolor: #291a03;
-  --over-height: 6%;
-  --sticky-height: 6%;
+  --over-height: 80px;
+  --sticky-height: 70px;
   --overlay-bg: rgba(0, 0, 0, 0.55);
   --transition: 250ms;
   --textcolor: #fff;
@@ -53,6 +53,14 @@ body {
   height: auto;
   max-width: 200px;
 }
+@media (max-width: 768px) {
+  .header--over .brand img,
+  .header--sticky .brand img {
+    width: 40%;
+    max-width: 120px;
+  }
+}
+
 .nav ul {
   display: flex;          /* organiza los items en horizontal */
   gap: 15px;              /* espacio entre los enlaces */
@@ -189,35 +197,55 @@ body.has-sticky main { padding-top: var(--sticky-height); }
 =================================*/
 .map-section {
   display: flex;
-  justify-content: center; /* centra horizontalmente mapa y texto */
-  align-items: flex-start; /* alinea la parte superior */
-  gap: 6rem;               /* aumenta la separación entre mapa y texto */
-  padding: 1% 0;           /* más espacio arriba y abajo */
+  justify-content: center;      /* centra mapa y texto */
+  gap: 4rem;                    /* espacio entre mapa y texto */
+  padding: 4rem 10%;
   background-color: var(--backcolor);
-  flex-wrap: wrap;          /* para que sea responsive */
-  padding-right:5% ;
-  padding-left: 10%;
-}
-.map-section .map-text {
-  max-width: 1000px;         /* aumenta ancho máximo del texto */
-  width: 100%;
-  color: white;
-  text-align: left;
-  line-height: 1.5;
-  padding-left: 15%;
+  flex-wrap: nowrap;            /* mantiene el texto a la derecha */
 }
 
-/* Responsive: apilar verticalmente en pantallas pequeñas */
-@media (max-width: 768px) {
+.map {
+  flex: 0 0 400px;              /* tamaño fijo base del mapa */
+  aspect-ratio: 1 / 1;          /* cuadrado */
+  max-width: 500px;
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.map-text {
+  flex: 1;                      /* ocupa el resto del espacio */
+  color: white;
+  text-align: left;
+  line-height: 1.6;
+  margin-top: 5rem;             /* espacio superior */
+  max-width: 600px;
+}
+
+/* Responsive — apilar en móviles */
+@media (max-width: 900px) {
   .map-section {
     flex-direction: column;
     align-items: center;
-    gap: 3rem;              /* separación menor al apilar verticalmente */
+    gap: 2rem;
+    padding: 2rem;
   }
 
-  .map-section .map-text,
-  .map-section table {
-    max-width: 90%;
+  .map {
+    width: 90%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .map-text {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 0 1rem;
   }
 }
 
@@ -329,7 +357,8 @@ body.has-sticky main { padding-top: var(--sticky-height); }
 .carousel-track { display: flex; gap: 40px; }
 .carousel-slide {
   flex: 0 0 auto;
-  width: 500px;
+  width: 80vw; /* 80% del ancho de la pantalla */
+  max-width: 400px;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
